@@ -1,0 +1,72 @@
+{
+  "expo": {
+    "name": "HeliosApp",
+    "slug": "HeliosApp",
+    "version": "3.0.0",
+    "description": "Creating Stories",
+    "orientation": "portrait",
+    "icon": "./assets/images2/logo.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images2/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.aagarwal434.HeliosApp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.aagarwal434.HeliosApp"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images2/logo.png",
+      "pwa": {
+        "manifest": {
+          "start_url": "/",
+          "display": "standalone",
+          "background_color": "#ffffff",
+          "theme_color": "#000000",
+          "icons": [
+            {
+              "src": "./assets/images2/logo.png",
+              "sizes": "512x512",
+              "type": "image/png"
+            }
+          ]
+        }
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "1e497900-d92d-407f-befa-6cf9a8c1c027"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1e497900-d92d-407f-befa-6cf9a8c1c027"
+    }
+  }
+}
