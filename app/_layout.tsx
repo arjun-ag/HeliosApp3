@@ -33,7 +33,6 @@ import ImmortalScreen from './immortal'
 import Question1Screen from './questions1'
 import Question2Screen from './questions2'
 import Question3Screen from './questions3'
-import FinalDemoScreen from './finalDemo'
 
 const Stack = createNativeStackNavigator();
 
@@ -113,8 +112,6 @@ function RootLayoutNav() {
         <Stack.Screen name="questions1" component={Question1Screen} options={{headerShown: false}}/>
         <Stack.Screen name="questions2" component={Question2Screen} options={{headerShown: false}}/>
         <Stack.Screen name="questions3" component={Question3Screen} options={{headerShown: false}}/>
-        <Stack.Screen name="finalDemo" component={FinalDemoScreen} options={{headerShown: false}}/>
-
       </Stack.Navigator>
     </ThemeProvider>
   );

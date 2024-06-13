@@ -83,7 +83,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.aagarwal434.HeliosApp'
+    namespace "com.heliosapp"
     defaultConfig {
         applicationId 'com.aagarwal434.HeliosApp'
         minSdkVersion rootProject.ext.minSdkVersion

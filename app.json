@@ -21,10 +21,6 @@
       "bundleIdentifier": "com.aagarwal434.HeliosApp"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
       "package": "com.aagarwal434.HeliosApp"
     },
     "web": {

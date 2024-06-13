@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Animated } from 'react-native';
   import {useEffect, useState} from 'react';
   import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-  import { Text, View } from '@/components/Themed';
+  import { Text, View } from 'react-native';
   import { Audio, AVPlaybackStatus } from 'expo-av';
   import Slider from '@react-native-community/slider';
 

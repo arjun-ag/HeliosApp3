@@ -4,10 +4,7 @@ import { Animated, StyleSheet, Image, Dimensions, ViewToken , ScrollView, FlatLi
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ScreenOrientation from 'expo-screen-orientation';
-
-
-
-import { Text, View } from '@/components/Themed';
+import { Text, View } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -181,21 +178,42 @@ const StayModeScreen:React.FC<Props> = ({ navigation }) => {
   return (
     <View style = {styles.container}>
     <StatusBar hidden={true}/>
-    <ScrollView style={styles.container} stickyHeaderIndices={[0]}>
-      <Animated.View style={[styles.stickyHeader, {
-      shadowOpacity: 3,
-      shadowRadius: 5,
+
+    <Animated.View style ={[styles.header, {
+      shadowOpacity: 2,
+      shadowRadius: 3,
       shadowColor: '#000',
       shadowOffset: { height: 0, width: 0 },
       elevation: 2 // for Android shadow
     }]}>
-      <TouchableOpacity onPress={() => navigation.navigate('questions1')} activeOpacity={0.999}>
-        <Image
-          source={require('../assets/images2/logo.png')} // Replace with your image URL or local source
-          style={styles.headerImage}
-        />
-        </TouchableOpacity>
-      </Animated.View>
+        {/* <View style={goMode ? styles.imageBox : styles.imageBoxActive}> */}
+        {/* <Image source={require('../assets/images2/backIcon.png')} style={styles.backIconImage} /> */}
+          <Image source={require('../assets/images2/logo.png')} style={styles.headerImage} />
+        {/* </View> */}
+
+      {/* <TouchableOpacity onPress={goModeHandler}>
+      <View style={goMode ? styles.imageBoxActive : styles.imageBox}>
+          <Image source={require('../assets/images2/goMode.png')} style={styles.imageFooter}/>
+        </View>
+  </TouchableOpacity>*/}
+    </Animated.View>
+
+
+    <ScrollView style={styles.container}>
+                    {/* <Animated.View style={[styles.stickyHeader, {
+                    shadowOpacity: 3,
+                    shadowRadius: 5,
+                    shadowColor: '#000',
+                    shadowOffset: { height: 0, width: 0 },
+                    elevation: 2 // for Android shadow
+                  }]}>
+                    <TouchableOpacity onPress={() => navigation.navigate('questions1')} activeOpacity={0.999}>
+                      <Image
+                        source={require('../assets/images2/logo.png')}
+                        style={styles.headerImage}
+                      />
+                      </TouchableOpacity>
+                    </Animated.View> */}
 
       <TouchableOpacity onPress={() => navigation.navigate('editorial')} activeOpacity={0.999}>
         <ImageBackground
@@ -475,6 +493,11 @@ const styles = StyleSheet.create({
     height: 30,  // Fixed height
     resizeMode: 'contain'  // Maintain aspect ratio
   },
+  headerLogo: {
+    width: 30,  // Fixed width
+    height: 30,  // Fixed height
+    resizeMode: 'contain'  // Maintain aspect ratio
+  },
   rightText: {
     fontSize: 16,
     fontStyle: 'normal',
@@ -525,14 +548,21 @@ const styles = StyleSheet.create({
     position: 'relative',
     alignItems: 'center',
     zIndex: 1,
-    
   },
+  backIconImage: {
+width: 24,
+height: 24,
+right: width/3,
+top:height/40
+// border: 4, 
+// solid #D9D9D9,
+  },
+
   headerImage: {
     width: 40,  
-    bottom: 30,       
-    height: 30,  
+    height: 40,  
+    top:height/35,
     resizeMode: 'contain',
-    paddingTop:height/4,    
   },
   section1: {
     position: 'relative',
@@ -643,9 +673,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection:'row'
   },
+  header: {
+    padding: height/25,
+    backgroundColor: '#1F2327',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection:'row',
+  },
+  
+  
   container : {
     flex:1,
-    backgroundColor: '#fff',
+    backgroundColor: '#1F2327',
   },   
   linearGradient: {
     width: '100%',

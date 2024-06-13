@@ -1,8 +1,6 @@
 import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'react-native';
-  import StoryHelios from '@/components/storyHelios';
   import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-  import { Text, View } from '@/components/Themed';
-  import Animated, {useSharedValue, useAnimatedScrollHandler, useAnimatedStyle, interpolate} from 'react-native-reanimated';
+  import { Text, View } from 'react-native';
   
   const {width, height} = Dimensions.get('window');
   

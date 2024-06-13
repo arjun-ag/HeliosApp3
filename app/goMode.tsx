@@ -1,16 +1,26 @@
 import { Animated, StyleSheet, Dimensions, ScrollView, StatusBar, Image, TouchableOpacity, ImageBackground, FlatList} from 'react-native';
-import { Text, View } from '@/components/Themed';
 import {useRef, useState, useEffect} from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { Amplify, API } from 'aws-amplify';
+import awsconfig from '../aws-exports';
+import { Text, View } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
+
+Amplify.configure(awsconfig);
+interface apiResponse {
+  // Define the expected response structure
+  key: string;
+}
 
 type Props = { navigation: NativeStackNavigationProp<any>; };
   
 const GoModeScreen:React.FC<Props> = ({ navigation }) => {
 const [goMode, setGoMode] = useState(true);
+const [data, setData] = useState<apiResponse>({key:"ngasull"});
+const data1='why';
 
 const sections1 = [
   {
@@ -38,7 +48,6 @@ const sections1 = [
   //   subtext1: 'roaming about',
   // }
 ];
-
 
 const sections2 = [
   {
@@ -114,7 +123,6 @@ const sections4 = [
   }
 
 ]
-
   const goModeHandler = () => {
     setGoMode(false);
     navigation.navigate('stayMode');
@@ -280,6 +288,9 @@ const sections4 = [
       shadowOffset: { height: 0, width: 0 },
       elevation: 2 // for Android shadow
     }]}>
+    <View>
+      <Text>Data from API - {data.key}</Text>
+    </View>
     <TouchableOpacity onPress={goModeHandler}>
         <View style={goMode ? styles.imageBox : styles.imageBoxActive}>
           <Image source={require('../assets/images2/stayMode.png')} style={styles.imageFooter} />

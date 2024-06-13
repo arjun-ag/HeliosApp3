@@ -7,7 +7,7 @@ declare module "expo-router" {
   export * from 'expo-router/build';
 
   // prettier-ignore
-  type StaticRoutes = `/` | `/(tabs)/` | `/(tabs)` | `/(tabs)/third` | `/third` | `/autumn` | `/dream` | `/editorial` | `/finalDemo` | `/goMode` | `/goModeAutumn` | `/goModeDream` | `/goModeEditorial` | `/goModeHamlet` | `/goModeHonk` | `/goModeLost` | `/goModeOnward` | `/goModeShowman` | `/hamlet` | `/honk` | `/immortal` | `/lost` | `/modal` | `/onward` | `/questions1` | `/questions2` | `/questions3` | `/showman` | `/stayMode`;
+  type StaticRoutes = `/` | `/(tabs)/` | `/(tabs)` | `/(tabs)/third` | `/third` | `/autumn` | `/dream` | `/editorial` | `/goMode` | `/goModeAutumn` | `/goModeDream` | `/goModeEditorial` | `/goModeHamlet` | `/goModeHonk` | `/goModeLost` | `/goModeOnward` | `/goModeShowman` | `/hamlet` | `/honk` | `/immortal` | `/lost` | `/modal` | `/onward` | `/questions1` | `/questions2` | `/questions3` | `/showman` | `/stayMode`;
   // prettier-ignore
   type DynamicRoutes<T extends string> = never;
   // prettier-ignore

@@ -1,9 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, Image, Dimensions, TouchableOpacity, Animated } from 'react-native';
+import { StyleSheet, Image, Animated } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import {useEffect, useState, useRef} from 'react';
-import EditScreenInfo from '@/components/storyHelios';
-import { Text, View } from '@/components/Themed';
+import {useEffect, useRef} from 'react';
+import { Text, View } from 'react-native';
 
 type Props = {
   navigation: NativeStackNavigationProp<any>;

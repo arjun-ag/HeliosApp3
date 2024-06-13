@@ -1,7 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, TextInput, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Text, View } from '@/components/Themed';
+import { Text, View } from 'react-native';
 import {useState} from 'react';
 
 const {width, height} = Dimensions.get('window');
