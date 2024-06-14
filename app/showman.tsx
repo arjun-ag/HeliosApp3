@@ -24,7 +24,7 @@ import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'rea
             <Text style = {[styles.subText, styles.subTitle1]}>verse</Text>
             <Text style = {styles.titleText}>The Showman</Text>
             <Text style = {[styles.subText, styles.subTitle2]}>"...for boundless Self existence joy"</Text>
-            <Image source={require('../assets/images2/showmanE.jpeg')} style={styles.img}/>
+            {/* <Image source={require('../assets/images2/showmanE.jpeg')} style={styles.img}/> */}
             <Text style = {[styles.subText, styles.article]}>
 Curtains Rise{'\n\n'}
 It seems just so – a perfect normal steeped {'\n'}

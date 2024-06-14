@@ -37,12 +37,6 @@ const sections1 = [
     headline: 'Onward',
     subtext1: '...or don\'t give up',
   },
-  // {
-  //   key: '4',
-  //   image: require('../assets/images2/lostNew.jpeg'),
-  //   headline: 'Lost',
-  //   subtext1: '... or why dreaming is fun',
-  // }
 ];
 
 const sections2 = [
@@ -52,12 +46,6 @@ const sections2 = [
     headline: 'One Wayward Honk',
     subtext1: '',
   },
-  // {
-  //   key: '2',
-  //   image: require('../assets/images2/1.png'),
-  //   headline: 'Light',
-  //   subtext1: 'coming soon',
-  // },
 ]
 
 const sections3 = [
@@ -67,18 +55,6 @@ const sections3 = [
     headline: 'Playing Hamlet',
     subtext1: '...or why we don\'t understand art',
   },
-  // {
-  //   key: '2',
-  //   image: require('../assets/images2/5.png'),
-  //   headline: "Einstein",
-  //   subtext1: '...or why be a genius',
-  // },
-  // {
-  //   key: '3',
-  //   image: require('../assets/images2/6.png'),
-  //   headline: "Picasso",
-  //   subtext1: '...or why draw',
-  // }
 ]
 
 const sections4 = [
@@ -186,55 +162,42 @@ const StayModeScreen:React.FC<Props> = ({ navigation }) => {
       shadowOffset: { height: 0, width: 0 },
       elevation: 2 // for Android shadow
     }]}>
-        {/* <View style={goMode ? styles.imageBox : styles.imageBoxActive}> */}
-        {/* <Image source={require('../assets/images2/backIcon.png')} style={styles.backIconImage} /> */}
-          <Image source={require('../assets/images2/logo.png')} style={styles.headerImage} />
-        {/* </View> */}
-
-      {/* <TouchableOpacity onPress={goModeHandler}>
-      <View style={goMode ? styles.imageBoxActive : styles.imageBox}>
-          <Image source={require('../assets/images2/goMode.png')} style={styles.imageFooter}/>
-        </View>
-  </TouchableOpacity>*/}
+      <Image source={require('../assets/images2/backIcon.png')} style ={styles.headerBackIcon}></Image>
+      <Image source={require('../assets/images2/logo.png')} style={styles.headerIcon} />
+      <Image source={require('../assets/images2/accountIcon.png')} style={styles.headerAccountIcon} />
     </Animated.View>
 
 
     <ScrollView style={styles.container}>
-                    {/* <Animated.View style={[styles.stickyHeader, {
-                    shadowOpacity: 3,
-                    shadowRadius: 5,
-                    shadowColor: '#000',
-                    shadowOffset: { height: 0, width: 0 },
-                    elevation: 2 // for Android shadow
-                  }]}>
-                    <TouchableOpacity onPress={() => navigation.navigate('questions1')} activeOpacity={0.999}>
-                      <Image
-                        source={require('../assets/images2/logo.png')}
-                        style={styles.headerImage}
-                      />
-                      </TouchableOpacity>
-                    </Animated.View> */}
+
 
       <TouchableOpacity onPress={() => navigation.navigate('editorial')} activeOpacity={0.999}>
         <ImageBackground
-          source={require('../assets/images2/manifestoE.jpeg')} // Replace with your own image URL
-          resizeMode="cover" // Cover the entire area of the View
+          source={require('../assets/images2/wayward.png')}
+          resizeMode="cover"
           style={styles.section1}>
+
           <LinearGradient
-              colors={['#000', 'rgba(0,0,0,0)']}  // Starting from a solid color, fading to transparent
-              start={{ x: 0, y: -1 }}  // Gradient starts t the left
-              end={{ x: 1, y: -1 }}    // Gradient ends at the right
-              style={styles.linearGradient}/>
-          <Text style = {[styles.subText, styles.editorialPos1]}>editorial</Text>
-          <Text style={[styles.titleText, styles.editorialTitle]}>The Essential Manifesto</Text>
-          <Text style = {[styles.subText,styles.editorialPos2]}>...or why you should continue reading this</Text>
+              colors={['rgba(31,35,39,100)', 'rgba(0,0,0,0)']}
+              start={{ x: 0, y: 0 }} 
+              end={{ x: 0, y: 1 }} 
+              style={[styles.linearGradientTop, styles.linearGradient]}/>
+          <LinearGradient
+              colors={['rgba(0,0,0,0)', 'rgba(31,35,39,100)']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={[styles.linearGradientBottom, styles.linearGradient]}/>
+
+          <Text style = {[styles.mainPos1]}>Motion Picture Series</Text>
+          <Text style={[styles.mainTitle]}>Children of the Sea</Text>
+          
         </ImageBackground>
       </TouchableOpacity>
 
-      {/* first section */}
 
       <View style={styles.line} />
       <Text style = {styles.rightText}> impressions</Text>
+      
       <FlatList
       data={sections1}
       horizontal={true}
@@ -260,7 +223,7 @@ const StayModeScreen:React.FC<Props> = ({ navigation }) => {
               colors={['#000', 'rgba(0,0,0,0)']}  // Starting from a solid color, fading to transparent
               start={{ x: 0, y: 1 }}  // Gradient starts t the left
               end={{ x: 0, y: 0.2 }}    // Gradient ends at the right
-              style={styles.linearGradient2}/>
+              style={styles.linearGradientBottom}/>
               <Text style={[styles.titleText, styles.bottomTextTitle]}>{item.headline}</Text>
                 <Text style={[styles.subText, styles.bottomTextsubTitle]}>{item.subtext1}</Text>
               </ImageBackground>
@@ -323,26 +286,6 @@ const StayModeScreen:React.FC<Props> = ({ navigation }) => {
         ))}
     </View>
 
-    {/* third section */}
-
-    {/* <View style={[styles.line,styles.line2]} />
-    <Text style = {styles.rightText}> reason</Text>
-
-    <ImageBackground
-            source={require("../assets/images2/revolution.png")}
-            resizeMode="cover"
-            style={styles.section2}>
-            <LinearGradient
-              colors={['#000', 'rgba(0,66,94,0)']}  // Starting from a solid color, fading to transparent
-              start={{ x: 0, y: 1 }}  // Gradient starts t the left
-              end={{ x: 0, y: 0.2 }}    // Gradient ends at the right
-              style={styles.linearGradient2}/>
-            <Text style={[styles.titleText, styles.bottomTextTitle]}>Revolution</Text>
-            <Text style={[styles.subText, styles.bottomTextsubTitle]}>...or the ontology of change</Text>
-          </ImageBackground> */}
-
-    {/* fourth section */}
-
     <View style={[styles.line]} />
     <Text style = {styles.rightText}> intuitions</Text>
 
@@ -369,7 +312,7 @@ const StayModeScreen:React.FC<Props> = ({ navigation }) => {
               colors={['#000', 'rgba(0,0,0,0)']}  // Starting from a solid color, fading to transparent
               start={{ x: 0, y: 1 }}  // Gradient starts t the left
               end={{ x: 0, y: 0.2 }}    // Gradient ends at the right
-              style={styles.linearGradient2}/>
+              style={styles.linearGradientBottom}/>
                 <Text style={[styles.titleText, styles.bottomTextTitle]}>{item.headline}</Text>
                 <Text style={[styles.subText, styles.bottomTextsubTitle]}>{item.subtext1}</Text>
               </ImageBackground>
@@ -417,7 +360,7 @@ const StayModeScreen:React.FC<Props> = ({ navigation }) => {
               colors={['#000', 'rgba(0,0,0,0)']}  // Starting from a solid color, fading to transparent
               start={{ x: 1, y: 0 }}  // Gradient starts t the left
               end={{ x: 0.5, y: 0 }}    // Gradient ends at the right
-              style={styles.linearGradient3}/>
+              style={styles.linearGradientBottom}/>
             <Text style={[styles.titleText, styles.rightTitle]}>{item.headline}</Text>
             <Text style={[styles.subText, styles.rightTextsubTitle1]}>{item.subtext1}</Text>
             <Text style={[styles.subText, styles.rightTextsubTitle2]}>{item.subtext2}</Text>
@@ -524,7 +467,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#000', // This sets the color of the line
     marginVertical: 5, // This adds horizontal space around the line
     height: 1, // This makes the line span the full height of the container
-    // top:1,
   },
   imageBox: {
     backgroundColor:'white'
@@ -549,28 +491,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 1,
   },
-  backIconImage: {
-width: 24,
-height: 24,
-right: width/3,
-top:height/40
-// border: 4, 
-// solid #D9D9D9,
-  },
 
-  headerImage: {
-    width: 40,  
-    height: 40,  
+  headerIcon: {
+    width: 45,  
+    height: 45,  
     top:height/35,
+    resizeMode: 'contain',
+  },
+  headerBackIcon: {
+    width: 24,  
+    height: 24,  
+    top:height/35,
+    right:width/3,
+    resizeMode: 'contain',
+  },
+  headerAccountIcon: {
+    width: 24,  
+    height: 24,  
+    top:height/35,
+    left:width/3,
     resizeMode: 'contain',
   },
   section1: {
     position: 'relative',
     width: width,
-    height: height*0.4,
+    height: height*0.75,
     resizeMode:'contain',
-    justifyContent: 'flex-end', // Center the child at the bottom
-    alignItems: 'flex-start', // Center the child on the left
+    justifyContent: 'center', // Center the child at the bottom
+    alignItems: 'center', // Center the child on the left
     marginBottom: 10,
   },
   line2:{
@@ -628,21 +576,23 @@ top:height/40
     fontWeight: '400',
   },
 
-  editorialPos1: {
-    bottom:height/15,
-    left:width/7,
+  mainTitle: {
     fontFamily: 'Reross',
-    fontWeight: 'bold'
+    fontSize:39,
+    color: 'white',
+    fontWeight: '400',
+    lineHeight:44,
+    fontStyle:'normal',
+    letterSpacing:-0.24,
+    bottom:height/1.8,
   },
-  editorialPos2:{
-    width: width/3,
-    bottom:height/20,
-    left:width/20,
-  },
-  editorialTitle :{
-    bottom:height/20,
-    left:width/20,
-    width:width/3,
+  mainPos1:{
+    color:'white',
+    bottom:height/1.8,
+    lineHeight:34,
+    fontSize:18,
+    letterSpacing:-0.24,
+    fontWeight:'400',
   },
   bottomTextTitle: {
     // top:height/,
@@ -674,38 +624,27 @@ top:height/40
     flexDirection:'row'
   },
   header: {
-    padding: height/25,
+    padding: height*0.057,
     backgroundColor: '#1F2327',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection:'row',
   },
-  
-  
   container : {
     flex:1,
     backgroundColor: '#1F2327',
   },   
   linearGradient: {
     width: '100%',
-    height: height*0.4, // Adjust the height of the gradient as needed
+    height: height*0.3, // Adjust the height of the gradient as needed
     justifyContent: 'center',
     alignItems: 'center',
-    top:height*0.175,
   },
-  linearGradient2: {
-    width: '100%',
-    height: height*0.4, // Adjust the height of the gradient as needed
-    justifyContent: 'center',
-    alignItems: 'center',
-    top:10
+  linearGradientTop: {
+    // top:height*0.02,
   },
-  linearGradient3: {
-    width: '100%',
-    height: height*0.4, // Adjust the height of the gradient as needed
-    justifyContent: 'center',
-    alignItems: 'center',
-    top:height/10
+  linearGradientBottom: {
+    top: height*0.18
   },
 
 });

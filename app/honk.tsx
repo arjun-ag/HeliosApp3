@@ -1,6 +1,9 @@
 import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'react-native';
   import { NativeStackNavigationProp } from '@react-navigation/native-stack';
   import { Text, View } from 'react-native';
+  import { useEffect, useState } from 'react';
+  import { listObjects, getSignedUrl } from '../s3-utils';
+  import { FlatList } from 'react-native';
   
   const {width, height} = Dimensions.get('window');
   
@@ -8,7 +11,50 @@ import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'rea
     navigation: NativeStackNavigationProp<any>;
   };
 
+
   const HonkScreen:React.FC<Props> = ({ navigation }) => {
+  
+    const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+    const bucketName = "myvodappstack-waywardglobe9df89498-vnwbgksmjzd4"
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch('https://myvodappstack-waywardglobe9df89498-vnwbgksmjzd4.s3.amazonaws.com/cots.json');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const json = await response.json();
+          setData(json);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, ['https://myvodappstack-waywardglobe9df89498-vnwbgksmjzd4.s3.amazonaws.com/cots.json']);
+
+  // const [urls, setUrls] = useState({});
+
+  // useEffect(() => {
+  //   const fetchUrls = async () => {
+  //     const urlsTemp = {};
+  //     const data = await listObjects(bucketName);
+  //     if (data.Contents){
+  //       for (const file of data.Contents) {
+  //         const url = await getSignedUrl(bucketName, file.Key);
+  //         if (file.Key) {
+  //           urlsTemp[file.Key] = url;
+  //         }
+  //       }
+  //       setUrls(urlsTemp);
+  //     }
+  //   };
+
+  //     fetchUrls();
+
+  // }, [bucketName]);
     
     return (
     <View style = {styles.container}>
@@ -26,16 +72,16 @@ import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'rea
             <Text style = {[styles.subText, styles.subTitle2]}>"have no-one left to stop and hear"</Text>
             <Image source={require('../assets/images2/honkE.jpeg')} style={styles.img}/>
 
-            <Text style = {[styles.subText, styles.article]}> These times, so full of gasps for nothing done, {'\n'}
-Hide truth behind the sound of rain that roars {'\n'}
-Above a peak hour rush. These streets, once drenched {'\n'}
-And quiet, have no-one left to stop and hear. {'\n\n'}
-
-But I have walked the night and braved the storm {'\n'}
-To find desertion midst these city lights. {'\n'}
-So I have heard the voice of God entrapped {'\n'}
-Beneath one wayward honk in search of home. 
-            </Text>
+            <FlatList
+      data={data ? Object.entries(data) : []}
+      keyExtractor={(item) => item[0]}
+      renderItem={({ item }) => (
+        <View style={styles.article}>
+          <Text style={styles.subText}>{item[0]}</Text>
+          <Text style={styles.subText}>{JSON.stringify(item[1], null, 2)}</Text>
+        </View>
+      )}
+    />
 
             <TouchableOpacity onPress={() => navigation.navigate('stayMode')}>
               <Image

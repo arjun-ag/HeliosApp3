@@ -20,7 +20,7 @@ import { StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'rea
             <Text style = {[styles.subText, styles.subTitle1]}>impressions</Text>
             <Text style = {styles.titleText}>Onward</Text>
             <Text style = {[styles.subText, styles.subTitle2]}>"Only the words themselves are; and so, by extension, am I, their writer"</Text>
-            <Image source={require('../assets/images2/onwardE.jpeg')} style={styles.img}/>
+            {/* <Image source={require('../assets/images2/onwardE.jpeg')} style={styles.img}/> */}
 
             <Text style = {[styles.subText, styles.article]}> I waited and waited by Fortieth and Sixth, and soon it began to snow. I have never seen that part of town as hopelessly empty as it was on this night in early February. The winds grew; the dead and empty branches of trees snapped in half and fell into the muck of soiled snow and slush on the streets. It was, no doubt, foolish to have stayed waiting there as long as I did. I knew that. But I want no guilt for lack of trying. Black cars with glaring red backlights rushed into the night every few minutes. The cops stayed in their vans on patrol, with blaring blue and orange sirens glinting falling snowflakes like a dream. It was a certain impersonality of the hour that made the cold more bearable. I stood, leaning against a wall, staring blankly at some shimmers in the darkness, playing my part. {'\n\n'}
 I remember my screenwriting professor, a most charming man who reminds me eerily of Julian Morrow from ‘The Secret History’, told me once that lurking beneath the surface of my words, he sensed a dormant and terrible hero churning the motors onward. So, I decided to lay the matter before you, quite early on, to tell you he was wrong. There are no daemons hiding behind the veneer of these words. Only the words themselves are; and so, by extension, am I, their writer. I have been misunderstood as a romantic, and on the worst days, as delusional, too much to allow you to do the same. {'\n\n'}
@@ -28,10 +28,10 @@ A little more than an hour later, when the police van, presumably, had found ano
             </Text>
 
             <TouchableOpacity onPress={() => navigation.navigate('stayMode')}>
-              <Image
+              {/* <Image
                 source={require('../assets/images2/dice.png')}
                 style={styles.headerImage}
-              />
+              /> */}
             </TouchableOpacity>
 
         </ScrollView>
