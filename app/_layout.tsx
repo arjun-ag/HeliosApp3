@@ -56,10 +56,14 @@ export default function HomeLayout() {
     Baskerville: LibreBaskerville_400Regular,
     BaskervilleItalics: LibreBaskerville_400Regular_Italic,
     Bodoni: require('../assets/fonts/BodoniSvtyTwoSCITCTT-Book.woff.otf'),
-    ...FontAwesome.font,
     Caslon: require('../assets/fonts/ACaslonPro-Regular.otf'),
     Bauhaus: require('../assets/fonts/BauhausRegular.ttf'),
-    Reross: require('../assets/fonts/fonnts.com-Reross_Quadratic.otf')
+    Reross: require('../assets/fonts/fonnts.com-Reross_Quadratic.otf'),
+    IMFell: require('../assets/fonts/IMFellDWPicaSC-Regular.ttf'),
+    KaiseiRegular: require('../assets/fonts/KaiseiDecol-Regular.ttf'),
+    KaiseiMedium: require('../assets/fonts/KaiseiDecol-Medium.ttf'),
+    CorbenRegular: require('../assets/fonts/Corben-Regular.ttf'),
+    ...FontAwesome.font,
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
